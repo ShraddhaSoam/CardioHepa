@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333; /* Default text color */
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header {
+            background-color: #101756;
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar ul li a:hover {
+            color: #fec107;
+        }
+
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #f9f9f9, #e9ecef);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        #overview ul,
+        #symptoms ul,
+        #prevention ul,
+        #doctor ul,
+        #how-to-fill-form ul {
+            list-style-type: disc; /* Use disc for list items in all sections */
+        }
+
+        /* Style list items with circles */
+        #prevention ul,
+        #doctor ul,
+        #how-to-fill-form ul {
+            list-style-type: circle;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div id="navbar-1">
+                <a href="/"></a>
+            </div>
+            <div class="navbar-right ms-auto">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/heartPrediction">Heart Prediction</a></li>
+                    <li><a href="/liverPrediction">Liver Prediction</a></li>
+                    <li><a href="/out">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <header>
+        <h1>HEART DISEASE</h1>
+    </header>
+    
+    <section id="overview">
+        <h2>Overview</h2>
+        <ul>
+            <p>Heart disease is a general term that includes many types of heart problems. It's also called cardiovascular disease, which means heart and blood vessel disease.</p>
+            <li>Blood vessel disease, such as coronary artery disease</li>
+            <li>Irregular heartbeats (arrhythmias)</li>
+            <li>Heart problems you're born with (congenital heart defects)</li>
+            <li>Disease of the heart muscle</li>
+            <li>Heart valve disease</li>
+        </ul>
+    </section>
+
+    <section id="symptoms">
+        <h2>Symptoms</h2>
+        <ul>
+            <li>Chest pain or discomfort</li>
+            <li>Dizziness</li>
+            <li>Fainting (syncope) or near fainting</li>
+            <li>Fluttering in the chest</li>
+            <li>Lightheadedness</li>
+            <li>Racing heartbeat (tachycardia)</li>
+            <li>Shortness of breath</li>
+            <li>Slow heartbeat (bradycardia)</li>
+            <li>Feeling short of breath during activity or at rest</li>
+            <li>Feeling short of breath at night when trying to sleep or waking up short of breath</li>
+            <li>Irregular heartbeats that feel rapid, pounding or fluttering</li>
+            <li>Swollen legs, ankles or feet</li>
+        </ul>
+    </section>
+
+    <section id="prevention">
+        <h2>Prevention</h2>
+        <ul>
+            <li>Don't smoke.</li>
+            <li>Eat a diet that's low in salt and saturated fat.</li>
+            <li>Exercise at least 30 minutes a day on most days of the week.</li>
+            <li>Maintain a healthy weight.</li>
+            <li>Reduce and manage stress.</li>
+            <li>Control high blood pressure, high cholesterol and diabetes.</li>
+            <li>Get good sleep. Adults should aim for 7 to 9 hours daily.</li>
+        </ul>
+    </section>
+
+    <section id="doctor">
+        <h2>When to see a doctor</h2>
+        <p>Seek emergency medical care if you have these heart disease symptoms:</p>
+        <ul>
+            <li>Chest pain</li>
+            <li>Shortness of breath</li>
+            <li>Fainting</li>
+        </ul>
+    </section>
+    <section id="how-to-fill-form">
+        <h2>How to Fill the Form</h2>
+        <ul>
+            <li>Age: Age of the patient in years</li>
+            <li>Sex: Gender of the patient (0 = male, 1 = female)</li>
+            <li>Chest Pain Type (CP):
+                <ul>
+                    <li>0: Typical angina</li>
+                    <li>1: Atypical angina</li>
+                    <li>2: Non-anginal pain</li>
+                    <li>3: Asymptomatic</li>
+                </ul>
+            </li>
+            <li>Resting Blood Pressure (trestbps): Resting blood pressure in mm Hg</li>
+            <li>Serum Cholesterol (chol): Serum cholesterol in mg/dl</li>
+            <li>Fasting Blood Sugar (fbs): Fasting blood sugar level, categorized as above 120 mg/dl (1 = true, 0 = false)</li>
+            <li>Resting Electrocardiographic Results (restecg):
+                <ul>
+                    <li>0: Normal</li>
+                    <li>1: Having ST-T wave abnormality</li>
+                    <li>2: Showing probable or definite left ventricular hypertrophy</li>
+                </ul>
+            </li>
+            <li>Maximum Heart Rate Achieved (thalach): Maximum heart rate achieved during a stress test</li>
+            <li>Exercise-Induced Angina (exang): Exercise-induced angina (1 = yes, 0 = no)</li>
+            <li>ST Depression (oldpeak): ST depression induced by exercise relative to rest</li>
+            <li>Slope of the Peak Exercise ST Segment (slope):
+                <ul>
+                    <li>0: Upsloping</li>
+                    <li>1: Flat</li>
+                    <li>2: Downsloping</li>
+                </ul>
+            </li>
+            <li>Number of Major Vessels Colored by Fluoroscopy (ca): Number of major vessels (0-4) colored by fluoroscopy</li>
+            <li>Thalium Stress Test Result (thal):
+                <ul>
+                    <li>0: Normal</li>
+                    <li>1: Fixed defect</li>
+                    <li>2: Reversible defect</li>
+                    <li>3: Not described</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

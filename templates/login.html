@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Login Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set a fallback color */
+            background-image: linear-gradient(to right, #c37575, #44449b);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .bottom {
+            margin-top: 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        .bottom a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .bottom a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <div class="login-box">
+            <h2>User Login</h2>
+            <form action="{{ url_for('login') }}" method="post">
+                {% if mesage is defined and mesage %}
+                    <div class="alert alert-warning">{{ mesage }}</div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" name="pswd">
+                </div>    
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p class="bottom">Don't have an account? <a href="{{url_for('register')}}">Register here</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

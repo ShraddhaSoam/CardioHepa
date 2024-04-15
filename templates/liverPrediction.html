@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <title>Liver Disease Prediction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            color: black;
+        }
+
+        body {
+            background: linear-gradient(to right, #e07070, #6363df) no-repeat top center;
+            padding: 0 10px;
+            background-size: cover;
+        }
+
+        .header {
+            background-color: #101756;
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar ul li a:hover {
+            color: #fec107;
+        }
+
+        .wrapper {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(39, 33, 33, 0.7);
+            margin: 20px auto;
+            padding: 30px;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 1.25);
+        }
+
+        .wrapper .title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #fec107;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .wrapper .form {
+            width: 100%;
+        }
+
+        .wrapper .form .input_field {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .wrapper .form .input_field label {
+            width: 200px;
+            font: bold;
+            color: wheat;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .wrapper .form .input_field input {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .wrapper .input_field input[type="submit"] {
+            color: black;
+            background: skyblue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 2em;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .my-cta-button{
+            background: #f9f9f9;
+               border: 2px solid #000000;
+            border-radius: 1000px;
+            box-shadow: 3px 3px #8c8c8c;
+            margin-top: 10px;
+            padding: 10px 36px;
+            color: #000000;
+            display: inline-block;
+               font: italic bold 20px/1 "Calibri", sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div id="navbar-1">
+            </div>
+            <div class="navbar-right ms-auto">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/heartPrediction">Heart Prediction </a></li>
+                    <li><a href="/liverPrediction">Liver Prediction</a></li>
+                    <li><a href="/out">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <form action="{{ url_for('predictt')}}" method="post">
+        <div class="wrapper">
+            <div class="title">
+                <h1 style="color: white;">Liver Disease Prediction</h1>
+            </div>
+            <div class="form">
+                <div class="input_field">
+                    <label>Age</label>
+                    <input type="text" id="Age" name="Age" placeholder="Age (in years)" class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Gender</label>
+                    <input type="text" name="Gender" id="Gender" required="required" placeholder="Gender(0 : Male and 1 : Female)" class="input_text">
+                    
+                </div>
+                <div class="input_field">
+                    <label>Total Bilirubin</label>
+                    <input type="text" step="0.01" name="Total_Bilirubin" id="Total_Bilirubin" required="required" placeholder="Total Bilirubin (in mg/dL)" class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Direct Bilirubin</label>
+                    <input type="text" step="0.01" name="Direct_Bilirubin" id="Direct_Bilirubin" required="required" placeholder="Conjugated Bilirubin (in mg/dL)" class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Alkaline Phosphatase</label>
+                    <input type="text" name="Alkaline_Phosphatase" id="Alkaline_Phosphatase" required="required" placeholder="Alkaline Phosphatase (in IU/L)" class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Alamine Aminotransferase</label>
+                    <input type="text" name="Alamine_Aminotransferase" id="Alamine_Aminotransferase" required="required" placeholder="Alamine Aminotransferase (in IU/L)" class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Aspartate Aminotransferase</label>
+                    <input type="text" name="Aspartate_Aminotransferase" id="Aspartate_Aminotransferase" required="required" placeholder="Aspartate Aminotransferase (in IU/L)"  class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Total Proteins</label>
+                    <input type="text" step="0.01" name="Total_Proteins" id="Total_Proteins" placeholder="Total Proteins (in g/dL)" required="required" class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Albumin</label>
+                    <input type="text" step="0.01" name="Albumin" id="Albumin"  placeholder="Albumin (in g/dL)" required="required" class="input_text">
+                </div>
+                <div class="input_field">
+                    <label>Albumin and Globulin Ratio</label>
+                    <input type="text" step="0.01" name="Albumin_Globulin_Ratio" id="Albumin_Globulin_Ratio" placeholder="Albumin and Globulin Ratio" required="required"  class="input_text">
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="my-cta-button" value="Predict">
+        
+        
+            </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

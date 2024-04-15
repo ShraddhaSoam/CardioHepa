@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart and Liver Information</title>
+    <style>
+
+      .work_container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Other styles for your work container */
+
+      }
+
+      .work_card {
+        
+        transition: transform 0.3s ease; /* Smooth transition effect */
+      }
+
+      .work_card:hover {
+        transform: scale(1.1); /* Scale up the card on hover */
+      }
+
+
+      .work_container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Other styles for your work container */
+
+      }
+
+      .work_card {
+        
+        transition: transform 0.3s ease; /* Smooth transition effect */
+      }
+
+      .work_card:hover {
+        transform: scale(1.1); /* Scale up the card on hover */
+      }
+    </style>
+
+  </head>
+  <body>
+      <header id="header" class="header">
+          <nav class="navbar">
+            <div id="navbar-1">
+            </div>
+              <div class="navbar-right ms-auto">
+  
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/heartPrediction">Heart Prediction</a></li>
+                    <li><a href="/liverPrediction">Liver Prediction</a></li>
+                    <li><a href="/out">Log out</a></li>
+                </ul>
+  
+            </div>
+            </ul>
+          </nav>
+        </header>
+
+<section class="work section" id="portfolio">
+  <div>
+    <div class="work_container container grid">
+      <div class="work_card">
+        <img src="{{ url_for('static', filename='heart.jpeg') }}" alt="Heart Image">
+        <h3 class="work_title">HEART</h3>
+        <a
+          href="/heart_details"
+          target="_blank"
+          rel="noopener"
+          class="work_button"
+          >Learn More
+          <i class="bx bx-right-arrow-alt work_button-icon"></i
+        ></a>
+      </div>
+
+      <div class="work_card">
+        <img src="{{ url_for('static', filename='liver.jpeg') }}" alt="liver Image">
+        <h3 class="work_title">LIVER DISEASE</h3>
+        <a
+          href="/liver_details"
+          target="_blank"
+          rel="noopener"
+          class="work_button"
+          >Learn More
+          <i class="bx bx-right-arrow-alt work_button-icon"></i
+        ></a>
+      </div>
+
+    </body>
+
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+      <div class="info-box">
+          <h2>Heart</h2>
+          <p class="info-text">In recent years, India has witnessed a concerning rise in heart diseases, posing a significant public health challenge. Several factors contribute to this surge, including lifestyle changes, urbanization, dietary shifts, and increased stress levels. Sedentary lifestyles, characterized by reduced physical activity and unhealthy eating habits, have become prevalent, leading to obesity, hypertension, and diabetes—all significant risk factors for cardiovascular ailments. 
+          </p>
+          <p>
+              <a href="/heart_details">Learn More</a>
+          </p>
+      </div>
+      <img src="{{ url_for('static', filename='heart.jpeg') }}" alt="Heart Image">
+
+  </div>
+  <div class="container" >
+    <img src="{{ url_for('static', filename='Liver1.jpeg') }}" alt="Liver Image">
+
+      <div class="info-box">
+          <h2>Liver </h2>
+          <p class="info-text">Several factors contribute in increasing liver diseases , including changing lifestyles, increased consumption of alcohol, unhealthy dietary habits, viral hepatitis infections (particularly hepatitis B and C), and a growing prevalence of non-alcoholic fatty liver disease (NAFLD) due to obesity and diabetes. Limited access to healthcare services and diagnostics in rural areas exacerbates the problem, leading to underdiagnosis and delayed treatment.</p>
+          <p>
+            <p>
+              <a href="/liver_details">Learn More</a>
+          </p>
+          </p>
+      </div>
+  
+  </div>

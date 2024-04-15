@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <title>Heart Disease Prediction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            color: black;
+        }
+
+        body {
+            background: linear-gradient(to right, #e07070, #6363df) no-repeat top center;
+            padding: 0 10px;
+            background-size: cover;
+        }
+
+        .header {
+            background-color: #101756;
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar ul li a:hover {
+            color: #fec107;
+        }
+
+        input[type=text], select {
+            width:60%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: inline block;
+            width: 200px;
+            font-weight: bold;
+            text-align: center;
+            float: left;
+                
+          }
+
+        .wrapper {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(39, 33, 33, 0.7);
+            margin: 20px auto;
+            padding: 30px;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 1.25);
+        }
+
+        .wrapper .title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #fec107;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .wrapper .form {
+            width: 100%;
+        }
+
+        .wrapper .form .input_field {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .wrapper .form .input_field label {
+            width: 100px;
+            font: bold;
+            color: wheat;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .wrapper .form .input_field input {
+            width: 280px;
+        }
+
+        .wrapper .form .input_field .textarea {
+            resize: none;
+            height: 250px;
+            width: 100px;
+        }
+
+        .wrapper .input_field input[type="submit"] {
+            color: black;
+            background: skyblue;
+        }
+
+        .my-cta-button{
+            background: #f9f9f9;
+               border: 2px solid #000000;
+            border-radius: 1000px;
+            box-shadow: 3px 3px #8c8c8c;
+            margin-top: 10px;
+            padding: 10px 36px;
+            color: #000000;
+            display: inline-block;
+               font: italic bold 20px/1 "Calibri", sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div id="navbar-1">
+                <a href="/"></a>
+            </div>
+            <div class="navbar-right ms-auto">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/heartPrediction">Heart Prediction</a></li>
+                    <li><a href="/liverPrediction">Liver Prediction</a></li>
+                    <li><a href="/out">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+            <div class="form">
+                <form action="{{ url_for('predict')}}" method="post">
+                    <div class="wrapper">
+                        <div class="title">
+                            <h1 style="color: white;">Heart Disease Prediction</h1>
+                        </div>
+                        <div class="form">
+                            <div class="input_field">
+                                <label for="age">Age</label >
+                                <input type="text" id="age" name="age" required="required" placeholder="Your age.."><br>
+
+                            </div>
+                            <div class="input_field">  
+                                 <label for="sex">Sex</label>
+                                <select id="sex" name="sex" required="required">
+                                <option selected>----select option----</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                                </select><br>
+                               </div>  
+                               <div class="input_field">  
+                               <!-- <label>CP</label>  
+                                 <input type="number" name="cp" id="cp" min="0" max="3" required="required" class="input_text">  
+                                 <br/>  <i style="font-size: 10px; color: white;">(Enter Single Value From Range 0-3)</i>  -->
+                                 <label for="cp">Chest Pain Type</label>
+                                <select id="cp" name="cp" required="required">
+                                <option selected>----select option----</option>
+                                <option value="0">Typical Angina</option>
+                                <option value="1">Atypical Angina</option>
+                                <option value="2">Non-anginal Pain</option>
+                                <option value="3">Asymtomatic</option>
+                                </select><br>
+                               </div>  
+                               <div class="input_field">  
+                                <label for="trestbps">Resting Blood Pressure</label>
+                                <input type="text" id="trestbps" name="trestbps" required="required" placeholder="A number in range [94-200] mmHg"><br>
+                               </div>  
+                               <div class="input_field">  
+                                <label for="chol">Serum Cholesterol</label>
+                                <input type="text" id="chol" name="chol" required="required" placeholder="A number in range [126-564] mg/dl"><br>
+
+                               </div>  
+                               <div class="input_field">  
+                                <label for="fbs">Fasting Blood Sugar</label>
+                                    <select id="fbs" name="fbs" required="required">
+                                    <option selected>----select option----</option>
+                                    <option value="1">Greater than 120 mg/dl</option>
+                                    <option value="0">Less than 120 mg/dl</option>
+                                    </select><br>
+                               </div>  
+                               <div class="input_field">  
+                                <label for="restecg">Resting ECG Results</label>
+                                    <select id="restecg" name="restecg" required="required">
+                                    <option selected>----select option----</option>
+                                    <option value="0">Normal</option>
+                                    <option value="1">Having ST-T wave abnormality</option>
+                                    <option value="2">Probable or definite left ventricular hypertrophy</option>
+                                    </select><br> 
+                               </div>  
+                               <div class="input_field">  
+                                <label for="thalach">Max Heart Rate </label>
+                                    <input type="text" id="thalach" name="thalach" required="required" placeholder="A number in range [71-202] bpm"><br>  
+                               </div>  
+                               <div class="input_field">  
+                                <label for="exang">Exercise-induced Angina</label>
+                                        <select id="exang" name="exang" required="required">
+                                        <option selected>----select option----</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                        </select><br>
+                               </div>  
+                               <div class="input_field">  
+                                <label for="oldpeak">ST depression</label>
+                                <input type="text" id="oldpeak" name="oldpeak" required="required" placeholder="ST depression, typically in [0-6.2]"><br>
+                               </div>  
+                               <div class="input_field">  
+                                <label for="slope">slope of the peak exercise ST segment</label>
+                                <select id="slope" name="slope" required="required">
+                                <option selected>----select option----</option>
+                                <option value="0">Upsloping</option>
+                                <option value="1">Flat</option>
+                                <option value="2">Downsloping</option>
+                                </select><br>  
+                               </div>  
+                               <div class="input_field">  
+                                <label for="ca">Number of Major vessels</label>
+                                <input type="text" id="ca" name="ca" required="required"  placeholder="Typically in [0-4]"><br>   
+                               </div>  
+                               <div class="input_field">  
+                                <label for="thal">Thalassemia</label> 
+                                    <select id="thal" name="thal" required="required" >
+                                    <option selected>----select option----</option>
+                                    <option value="0">Normal</option>
+                                    <option value="1">Fixed Defect</option> 
+                                    <option value="2">Reversible Defect</option>  
+                                    </select><br>  
+                               </div>  
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="my-cta-button" value="Predict">
+                               <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary btn-lg">Predict</button>-->
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
